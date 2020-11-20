@@ -13,7 +13,7 @@ import qrcode
 #    was create at 1 / 08 / 2020
 
 #             for more informations  
-# https://www.thepythoncode.com/article/generate-read-qr-code-python
+# thanks for idea https://www.thepythoncode.com/article/generate-read-qr-code-python
 
 ''' File name '''
 pic_name = "QR_code_test.png"
