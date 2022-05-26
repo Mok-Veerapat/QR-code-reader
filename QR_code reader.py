@@ -1,11 +1,12 @@
 import cv2
 from tkinter import *
 import math as M
-import autopy as ap
+# import autopy as ap       doent work for python 3.9++
 import pyautogui as pag
 from time import sleep
 from webbrowser import open
 import qrcode
+import os
 
 #    Create by programmer name Veerapat 
 #    license Free for personal usage
@@ -43,13 +44,16 @@ def Input():
         print("1  Set_TopLeft")
         print("2  Set_bottomRight")
         print("3  leave and capture screen")
-        print("4  for Close this program")
+        print("4  Create Q_code from URL\n")
+
+        print("5  for Close this program")
+    
         a = int(input("Enter :"))
         if a == 1: 
-            topleft = ap.mouse.location()
+            topleft = pag.position()
             print("Topleft is :",topleft)
         elif a == 2:
-            bottomright = ap.mouse.location()
+            bottomright = pag.position()
             print("bottomright is :",bottomright)
              
             w_h.insert(0,bottomright[0] - int(topleft[0]))
@@ -61,19 +65,27 @@ def Input():
 
             Read()
             break
+        elif a == 4:
+            Create()
+        elif a == 5:
+            break   
         else:
-            break
+            os.system('cls' if os.name == 'nt' else 'clear')
             
 
 
 def Create():
-    data = "https://www.google.com"
+
+    QR_img = qrcode.make(str(input("Paste URL here :) -->")))
+
+    if  str(os.listdir()).rfind("QR_code pic storage") == -1:
+        os.mkdir("QR_code pic storage")
+    os.chdir("QR_code pic storage")
+
+    QR_img.save(str(input("Your File name here! -->")) + ".jpg")
     
-    file_name = "Google.png"
+    pag.alert("File has been saved!! :D")
 
-    QR_img = qrcode.make(data)
-
-    QR_img.save(file_name)
 
 
 def Read():
