@@ -1,7 +1,7 @@
 # QR-code-reader
 using for free  on PC               
 
-......I annoying find qrcode reader on pc to scan everytime i want work.
+......I annoying find qrcode reader on pc to scan everytime i work.
 So i create qrcode reader myself.
 
 tutorial before using program:
